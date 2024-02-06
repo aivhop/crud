@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User roles</title>
+</head>
+<body>
+<div th:if="${user.getRoles() != null && !user.getRoles().isEmpty()}" th:text="${user.getUserName() + 'roles'}">
+    <div th:each="r : ${user.getRoles()}">
+        <a th:href="@{/roles/{id}(id=${r.getId()})}"
+           th:text="${r.getName()}">user</a>
+    </div>
+</div>
+
+
+<form th:method="PATCH" th:action="@{/users/{id_user}/roles(id_user=${user.getId()})}">
+    <label for="role">Choose role</label>
+    <select th:field="*{role.id}" id="role">
+        <option th:each="r : ${roles}"
+                th:if="${user.getRoles() == null || !user.getRoles().contains(r)}"
+                th:value="${r.getId()}" th:text="${r.getName()}">
+        </option>
+    </select>
+
+    <input type="submit" value="Add role"/>
+</form>
+
+
+</body>
+</html>

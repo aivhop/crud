@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add role</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/roles?userId={id}(id=${userId})}" th:object="${role}">
+    <label for="name">Enter role name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+
+    <br/>
+
+    <label for="privilegeLevel">Enter privilege Level: </label>
+    <input type="number" th:field="*{privilegeLevel}" id="privilegeLevel"/>
+    <div style="color:red" th:if="${#fields.hasErrors('privilegeLevel')}" th:errors="*{privilegeLevel}"></div>
+
+    <br/>
+
+    <label for="description">Enter description: </label>
+    <input type="text" th:field="*{description}" id="description"/>
+    <div style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+
+    <br/>
+
+    <input style="color: #45E050" type="submit" value="Add role!"/>
+</form>
+
+</body>
+</html>

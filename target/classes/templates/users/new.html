@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add user</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/users?roleId={id}(id=${roleId})}" th:object="${user}">
+    <label for="userName">Enter username: </label>
+    <input type="text" th:field="*{userName}" id="userName"/>
+    <div style="color:red" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></div>
+
+    <br/>
+
+    <label for="fullName">Enter full name: </label>
+    <input type="text" th:field="*{fullName}" id="fullName"/>
+    <div style="color:red" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></div>
+
+    <br/>
+
+    <label for="email">Enter email: </label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+
+    <br/>
+
+    <input  style="color: #45E050"  type="submit" value="Add user!"/>
+</form>
+
+</body>
+</html>

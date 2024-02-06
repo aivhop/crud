@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Edit ' + ${user.getUserName()}"></title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/users/{id}(id=${user.getId()})}" th:object="${user}">
+    <label for="userName">Edit username: </label>
+    <input type="text" th:field="*{userName}" id="userName"/>
+    <div style="color:red" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></div>
+    <br/>
+
+
+    <label for="fullName">Edit full name: </label>
+    <input type="text" th:field="*{fullName}" id="fullName"/>
+    <div style="color:red" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></div>
+    <br/>
+
+    <label for="email">Edit email: </label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    <br/>
+
+    <input style="color: #45E050" type="submit" value="Edit user!">
+</form>
+
+</body>
+</html>
