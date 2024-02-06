@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${role.getName()}"></title>
+</head>
+<body>
+<p th:text="${role.getId() + ' ' + role.getName()}"></p>
+<p th:text="${'Privelege level: ' + role.getPrivilegeLevel()}"></p>
+<p th:text="${'Short description: ' + role.getDescription()}"></p>
+<a th:href="@{/roles/{id}/users(id=${role.getId()})}">Users</a>
+<br/>
+<hr/>
+
+
+
+<a th:href="@{/roles/{id}/edit(id=${role.getId()})}">Edit role</a>
+<br/>
+<hr/>
+<form th:method="DELETE" th:action="@{/roles/{id}(id=${role.getId()})}">
+    <input style="color:red" type="submit" value="Delete role">
+</form>
+
+</body>
+</html>

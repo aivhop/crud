@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Edit ' + ${role.getName()}"></title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/roles/{id}(id=${role.getId()})}" th:object="${role}">
+    <label for="name">Edit role name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    <br/>
+
+
+    <label for="privilegeLevel">Edit privilege level: </label>
+    <input type="text" th:field="*{privilegeLevel}" id="privilegeLevel"/>
+    <div style="color:red" th:if="${#fields.hasErrors('privilegeLevel')}" th:errors="*{privilegeLevel}"></div>
+    <br/>
+
+    <label for="description">Edit description: </label>
+    <input type="text" th:field="*{description}" id="description"/>
+    <div style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+    <br/>
+
+    <input style="color: #45E050" type="submit" value="Edit role!">
+</form>
+
+</body>
+</html>
