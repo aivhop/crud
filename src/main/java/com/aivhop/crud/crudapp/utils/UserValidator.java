@@ -9,7 +9,7 @@ import org.springframework.validation.Validator;
 
 import java.util.Optional;
 
-@Component //todo check without
+@Component 
 public class UserValidator implements Validator {
 
     private final UserService userService;
